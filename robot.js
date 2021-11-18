@@ -4,8 +4,22 @@ function createRobot(x, y) {
   let py = y;
 
   return {
-    moveUp: () => py++,
-    moveRight: () => px++,
+    moveUp: () => {
+      py++;
+      return py;
+    },
+    moveDown: () => {
+      py--;
+      return py;
+    },
+    moveLeft: () => {
+      px--;
+      return px;
+    },
+    moveRight: () => {
+      px++;
+      return px;
+    },
     getX: () => px,
     getY: () => py,
   };

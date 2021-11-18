@@ -21,4 +21,16 @@ describe("Robot.js", () => {
     robotin.moveUp();
     expect(robotin.getY()).toEqual(1);
   });
+  test("GetX should return 0", () => {
+    const robotin = createRobot(0, 0);
+    robotin.moveRight();
+    robotin.moveLeft();
+    expect(robotin.getX()).toEqual(0);
+  });
+  test("GetY should return 0", () => {
+    const robotin = createRobot(0, 0);
+    robotin.moveUp();
+    robotin.moveDown();
+    expect(robotin.getY()).toEqual(0);
+  });
 });

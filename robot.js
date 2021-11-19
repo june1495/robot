@@ -20,12 +20,25 @@ function createRobot(x, y) {
       px++;
       return px;
     },
-    getX: () => px,
-    getY: () => py,
+    getX: () => {
+      if (px > 10 || px < 0) {
+        return new RangeError("Out of limits");
+      } else {
+        return px;
+      }
+    },
+    getY: () => {
+      if (py > 10 || py < 0) {
+        return new RangeError("Out of limits");
+      } else {
+        return py;
+      }
+    },
   };
 }
 
-/* const robot = createRobot(1, 1);
-console.log(robot.getX(), robot.getY()); */
+const robot = createRobot(10, 10);
+robot.moveUp();
+console.log(robot.getX(), robot.getY());
 
 module.exports = createRobot;

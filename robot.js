@@ -22,14 +22,14 @@ function createRobot(x, y) {
     },
     getX: () => {
       if (px > 10 || px < 0) {
-        return new RangeError("Out of limits");
+        return new Error("Out of limits");
       } else {
         return px;
       }
     },
     getY: () => {
       if (py > 10 || py < 0) {
-        return new RangeError("Out of limits");
+        return new Error("Out of limits");
       } else {
         return py;
       }

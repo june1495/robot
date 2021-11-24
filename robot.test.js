@@ -4,53 +4,42 @@ describe("Robot.js", () => {
     expect(createRobot()).not.toBeFalsy();
   });
   test("GetX should return 5", () => {
-    const robotin = createRobot(5, 5);
-    expect(robotin.getX()).toEqual(5);
+    const robot = createRobot(5, 5);
+    expect(robot.getX()).toEqual(5);
   });
   test("GetY should return 5", () => {
-    const robotin = createRobot(5, 5);
-    expect(robotin.getX()).toEqual(5);
+    const robot = createRobot(5, 5);
+    expect(robot.getX()).toEqual(5);
   });
   test("GetX should return 6", () => {
-    const robotin = createRobot(5, 5);
-    robotin.moveRight();
-    expect(robotin.getX()).toEqual(6);
+    const robot = createRobot(5, 5);
+    robot.moveRight();
+    expect(robot.getX()).toEqual(6);
   });
   test("GetY should return 6", () => {
-    const robotin = createRobot(5, 5);
-    robotin.moveUp();
-    expect(robotin.getY()).toEqual(6);
+    const robot = createRobot(5, 9);
+    robot.moveUp();
+    expect(robot.getY()).toEqual(10);
   });
   test("GetX should return 5", () => {
-    const robotin = createRobot(5, 5);
+    const robotin = createRobot(8, 5);
     robotin.moveRight();
-    robotin.moveLeft();
-    expect(robotin.getX()).toEqual(5);
+    expect(robotin.getX()).toEqual(9);
   });
   test("GetY should return 5", () => {
-    const robotin = createRobot(5, 5);
+    const robotin = createRobot(5, 2);
     robotin.moveUp();
     robotin.moveDown();
-    expect(robotin.getY()).toEqual(5);
+    expect(robotin.getY()).toEqual(2);
   });
   test("GetY should return an error", () => {
     const robotin = createRobot(10, 10);
     robotin.moveUp();
-    expect(robotin.getY()).toEqual(RangeError("Out of limits"));
+    expect(robotin.getY()).toEqual(Error("Out of limits"));
   });
   test("GetX should return an error", () => {
     const robotin = createRobot(10, 10);
     robotin.moveRight();
-    expect(robotin.getX()).toEqual(RangeError("Out of limits"));
-  });
-  test("GetY should return an error", () => {
-    const robotin = createRobot(0, 0);
-    robotin.moveDown();
-    expect(robotin.getY()).toEqual(RangeError("Out of limits"));
-  });
-  test("GetX should return an error", () => {
-    const robotin = createRobot(0, 0);
-    robotin.moveLeft();
-    expect(robotin.getX()).toEqual(RangeError("Out of limits"));
+    expect(robotin.getX()).toEqual(Error("Out of limits"));
   });
 });
